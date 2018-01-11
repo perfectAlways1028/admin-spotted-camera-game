@@ -1,0 +1,174 @@
+Apis
+
+Get Players
+================================
+url: /api/v1/players
+method: get
+
+Get Certain Player
+================================
+url: /api/v1/players/{id}
+method: get
+
+Invite Players
+================================
+url: /api/v1/player_invite
+method post
+
+param: {"userId": "xxx", "gameId":"xxx", "inviteList":[{"userId":"xxx"},{"userId":"xxx"}]}
+
+response: {"userId": "xxx", "gameId":"xxx", "inviteList":[{"userId":"xxx"},{"userId":"xxx"}]}
+
+Notification Player Invite 
+================================
+{'type': 100, 'data': {'requesterId': "xxx", 'requesterName':"xxx", 'requesterImageUrl':"xxx", 'gameId': game._id} }
+
+Accept Invite
+================================
+url: /api/v1/player_invite_accept
+method post
+param: {"userId": "xxx", "gameId":"xxx", "isAccept":true}
+
+Remove Player
+================================
+url: /api/v1/game_remove_player
+method post
+param: {"userId": "xxx", "gameId":"xxx"}
+
+Write Task
+================================
+url: /api/v1/game_write_task
+method post
+param: {"userId": "xxx", "gameId":"xxx", "task":"xxx"}
+"image" : <imagefile>
+Notification Write Task
+================================
+{'type': 200, 'data': {'gameId': game._id, 'roundId': game.currentRound} }
+
+Answer
+================================
+url: /api/v1/submit_answer
+method post
+param: {"gameId": "xxx", "roundId": "xxx", "userId": "xxx"}
+
+Notification Judge
+================================
+{'type': 300, 'data': {'gameId': "xxx", 'roundId': "xxx", 'answers': [{answerCreator:"",imageUrl:""}]}} 
+
+Judge
+================================
+url: /api/v1/submit_judge
+method post
+param: {"userId":"xxx", "gameId": "xxx", "roundId": "xxx", "answerId":"xxx"}
+
+
+Get My Games
+================================
+url: /api/v1/my_games
+method post
+param: {"userId": "xxx"}
+
+Game Create
+================================
+url: /api/v1/game_create
+method post
+param: {"gameName": "xxx", "status": "xxx", "startTime", "xxx", "endTime": "xxx", "gameCreator": "xxx"}
+
+Notification Update
+================================
+{'type': 400} 
+
+
+Forgot Password 
+================================
+url: /api/v1/forgot_password
+send mail to email.
+method post
+
+param: {"userName": "xxx", "email", "xxx"}
+
+
+Search Players
+================================
+url: /api/v1/search_friends
+method 
+POST
+header:
+_id
+params:
+"key": "jack"
+
+reponse:
+
+friends:
+
+players:
+
+
+Add Friend
+================================
+url: /api/v1/add_friend
+method
+post
+header:
+_id
+params:
+"friend_fb_id": ""
+
+Get PvP Game info
+================================
+url: /api/v1/get_pvp_info
+
+method
+post
+
+params:
+"userId"
+"friendId"
+
+response:
+userGamesWon
+firendGamesWon
+
+userPoint
+friendPoint
+
+
+Send Friend Invite Request
+================================
+url: /api/v1/player_friend_request
+
+method
+post
+
+param: {"requesterId":"xxx", "userList":[{"userId":"xxx"},{"userId":"xxx"}]}
+
+Accept Friend Requestss
+================================
+url: /api/v1/player_friend_accept
+method post
+param: {"userId": "xxx", "requesterId":"xxx", "isAccept":true}
+
+Friend Request Notification
+{'type': 600, 'data': {'_id': "requesterId" , "email": "ddd", "firstName" : "name", "imageUrl": "xxx"} }
+
+
+Get Notifications
+============================
+url: /api/v1/player_notifications/_id
+method get
+
+
+Create inivitation
+=================================
+url: /api/v1/add_invitations
+
+param: {"userId": "xxx", "inviteList":[{"receiverFacebookId":"xxx"},{"receiverFacebookId":"xxx"}]}
+
+check inivitations
+param {"facebookId"}
+
+
+Notification round show
+==================================
+{'type': 700, 'data': {'gameId': "xxx", 'roundId':"xxx"} }

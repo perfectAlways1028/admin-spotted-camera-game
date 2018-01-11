@@ -1,0 +1,13 @@
+.modal-header
+  h3.modal-title Enter number of rows and cols
+.modal-body
+  form.form(name="tableForm")
+    div.form-group
+      label(for="rows") Rows count
+      input.form-control(type="number" name="rows" placeholder="Rows" ng-model="newtable.rows" ng-required="true")
+    div.form-group
+      label(for="cols") Cols count
+      input.form-control(type="number" name="cols" placeholder="Cols" ng-model="newtable.cols" ng-required="true")
+.modal-footer
+  button.btn.btn-default.btn-primary(ng-click="ok()") OK
+  button.btn.btn-default(ng-click="cancel()") Cancel

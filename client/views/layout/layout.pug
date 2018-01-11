@@ -1,0 +1,8 @@
+include ./navbar.pug
+
+.container-fluid(ng-controller="MainCtrl")
+  .row
+    .col-sm-3.col-md-2.sidebar(ng-if="currentUser.role === 'admin'")
+      include ./sidebar.pug
+    .main(ng-class="{ 'col-sm-offset-3 col-sm-9 col-md-offset-2 col-md-10': currentUser.role === 'admin', 'col-md-12': currentUser.role === 'user' }")
+      block content

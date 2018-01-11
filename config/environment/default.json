@@ -1,0 +1,11 @@
+{
+  "api": {
+    "version": "v1"
+  },
+
+  "session": {
+    "encryptionKey": "ghfNoqddfbZughq",
+    "sessionKey": "spotted_admin_session",
+    "sessionExpirationTime": 604800000
+  }
+}

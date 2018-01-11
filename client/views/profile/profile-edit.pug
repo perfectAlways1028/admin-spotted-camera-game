@@ -1,0 +1,67 @@
+extends ../layout/layout.pug
+
+block content
+
+  .row
+    .col-md-12
+      h1.page-header Edit Profile {{ ::user.email }}
+    div
+      .row
+        .col-md-12
+          h2 Edit Profile {{ ::user.name }}
+      .row
+        .col-md-12
+          form.form-horizontal(name="profileForm")
+            .form-group
+               label.col-md-3.control-label(for="firstName") First Name
+               .col-md-9
+                 input.form-control(name="firstName" ng-model="user.firstName" placeholder="First Name" ng-disabled="isSaving")
+
+            .form-group
+               label.col-md-3.control-label(for="lastName") Last Name
+               .col-md-9
+                 input.form-control(name="lastName" ng-model="user.lastName" placeholder="Last Name" ng-disabled="isSaving")
+
+            .form-group(ng-class="{ 'has-error': profileForm.email.$invalid || profileForm.email.$error.required }")
+              label.col-md-3.control-label(for="email") Email*
+              .col-md-9
+                input.form-control(name="email" placeholder="Email" ng-model="user.email"
+                                     ng-required="true" ng-disabled="isSaving")
+      .row
+        .col-md-12
+          .buttons.text-right
+            a.btn.btn-default(href="/profile") Cancel
+            button.btn.btn-primary(ng-click="saveUser()" ng-disabled="profileForm.$invalid || isSaving") Save
+
+  .row
+    .col-md-12
+      h1.page-header Change Password
+    div
+      .row
+        .col-md-12
+          h2 Change Password
+      .row
+        .col-md-12
+          form.form-horizontal(name="passwordForm")
+            .form-group(ng-class="{ 'has-error': passwordForm.oldPassword.$invalid || passwordForm.oldPassword.$error.required }")
+              label.col-md-3.control-label(for="oldPassword") Old Password*
+              .col-md-9
+                input.form-control(type="password" name="oldPassword" placeholder="Old Password" ng-model="user.oldPassword"
+                                     ng-required="true" ng-disabled="isPasswordSaving")
+
+            .form-group(ng-class="{ 'has-error': passwordForm.newPassword.$invalid || passwordForm.newPassword.$error.required }")
+              label.col-md-3.control-label(for="newPassword") New Password*
+              .col-md-9
+                  input.form-control(type="password" name="newPassword" placeholder="New Password" ng-model="user.newPassword"
+                                     ng-required="true" ng-disabled="isPasswordSaving")
+
+            .form-group(ng-class="{ 'has-error': passwordForm.confirmPassword.$invalid || passwordForm.confirmPassword.$error.required }")
+              label.col-md-3.control-label(for="confirmPassword") Confirm Password*
+              .col-md-9
+                  input.form-control(type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="user.confirmPassword"
+                                     ng-required="true" ng-disabled="isPasswordSaving" compare-to="user.newPassword")
+      .row
+        .col-md-12
+          .buttons.text-right
+            a.btn.btn-default(href="/profile") Cancel
+            button.btn.btn-primary(ng-click="savePassword()" ng-disabled="passwordForm.$invalid || isPasswordSaving") Save

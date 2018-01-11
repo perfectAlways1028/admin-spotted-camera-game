@@ -1,0 +1,68 @@
+extends ../layout/layout.pug
+
+block content
+
+  .row
+    .col-md-12
+      h1.page-header View Game {{ ::game.gameName }}
+  .row(ng-show="isLoading")
+    .col-md-12
+      include ../common/spinner.pug
+  div(ng-hide="isLoading")
+    .row
+      .col-md-12
+        h2 View Game {{ ::game.gameName }}
+    .row
+      .col-md-12
+        .form-group
+           label.col-md-3.control-label(for="gameCreator") Game Creator
+           .col-md-9
+             input.form-control(name="gameCreator" ng-model="game.gameCreator.firstName" placeholder="First Name" ng-disabled="isSaving" ng-readonly="true")
+
+        .form-group(ng-show="game.gameWinner")
+           label.col-md-3.control-label(for="gameWinner") Game Winner
+           .col-md-9
+             input.form-control(name="gameWinner" ng-model="game.gameWinner.firstName" placeholder="Last Name" ng-disabled="isSaving" ng-readonly="true")
+    .row
+      .col-md-12
+        h2 Games Players
+    .row
+      .col-md-12
+        table.table.table-striped.game.players
+          thead
+            tr
+              td
+                strong Player Name
+              td.status
+                strong Player Status
+              td
+          tbody
+            tr(ng-repeat="player in game.players")
+              td {{ player.firstName }}
+              td {{ player.status }}
+              td.actions.text-right
+                button.btn.btn-default.btn-primary(title="View" ng-click="viewPlayer(player)" ng-disabled="isSaving") View
+    .row
+      .col-md-12
+        h2 Rounds
+    .row
+      .col-md-12
+        table.table.table-striped.game.gameRounds
+          thead
+            tr
+              td
+                strong Round Number
+              td
+                strong Round Judger
+              td
+                strong Round Winner
+              td
+          tbody
+            tr(ng-repeat="round in game.gameRounds")
+              td {{ round.roundIndex }}
+              td {{ round.judger.firstName }}
+              td {{ round.roundWinner.firstName }}
+              td.actions.text-right
+                button.btn.btn-default.btn-primary(title="View" ng-click="viewRound(round)" ng-disabled="isSaving") View
+
+

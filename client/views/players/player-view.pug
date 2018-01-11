@@ -1,0 +1,53 @@
+extends ../layout/layout.pug
+
+block content
+
+  .row
+    .col-md-12
+      h1.page-header View Player {{ ::player.email }}
+  .row(ng-show="isLoading")
+    .col-md-12
+      include ../common/spinner.pug
+  div(ng-hide="isLoading")
+    .row
+      .col-md-12
+        h2 View Player {{ ::player.firstName }}
+    .row
+      .col-md-12
+        include ./form.pug
+    .row
+      .col-md-12
+        h2 Games Played
+    .row
+      .col-md-12
+        table.table.table-striped.player.games
+          thead
+            tr
+              td
+                strong Game Name
+              td.status
+                strong Status
+              td
+          tbody
+            tr(ng-repeat="game in player.games")
+              td {{ game.gameName }}
+              td {{ game.status }}
+              td.actions.text-right
+                button.btn.btn-default.btn-primary(title="View" ng-click="viewGame(game)" ng-disabled="isSaving") View
+    .row
+      .col-md-12
+        h2 Badges
+    .row
+      .col-md-12
+        table.table.table-striped.player.badges
+          thead
+            tr
+              td
+                strong Badge Name
+              td
+                strong Badge Image
+          tbody
+            tr(ng-repeat="badge in player.badges")
+              td {{ badge.badgeName }}
+              td: img(ng-src="uploads/{{badge.imageUrl}}" ng-style="{width: '20px', height: '20px'}")
+

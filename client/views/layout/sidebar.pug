@@ -1,0 +1,11 @@
+div(ng-controller="NavbarCtrl")
+  ul.nav.nav-sidebar
+    li(ng-class="{ active: isActive('/players') }")
+      a(href="/players") Players
+    li(ng-class="{ active: isActive('/games') }")
+      a(href="/games") Games
+    li(ng-class="{ active: isActive('/badges') }")
+      a(href="/badges") Badges  
+  ul.nav.nav-sidebar
+    li(ng-class="{ active: isActive('/profile') }")
+      a(href="/profile") Profile

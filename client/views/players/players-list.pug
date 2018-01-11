@@ -1,0 +1,29 @@
+extends ../layout/layout.pug
+
+block content
+  .row
+    .col-md-12
+      h1.page-header Players
+  .row(ng-show="isLoading")
+    .col-md-12
+      include ../common/spinner.pug
+  div(ng-hide="isLoading")
+    .row
+      .col-md-12
+        table.table.table-striped.players
+          thead
+            tr
+              td
+                strong Name
+              td
+                strong Email
+              td.status
+                strong Status
+              td
+          tbody
+            tr(ng-repeat="player in players")
+              td {{ player.firstName }}
+              td {{ player.email }}
+              td {{ player.status }}
+              td.actions.text-right
+                button.btn.btn-default.btn-primary(title="View" ng-click="viewPlayer(player)" ng-disabled="isSaving") View

@@ -1,0 +1,112 @@
+{
+  "font-size": 11,
+  "font-name": "Times New Roman",
+  "localeId": 1033,
+  "page": {
+    "width": 215.9,
+    "height": 279.4,
+    "top-margin": 25.4,
+    "bottom-margin": 25.4,
+    "left-margin": 25.4,
+    "right-margin": 25.4,
+    "header": 19,
+    "footer": 12.7
+  },
+  "defaultSettings": {
+    "text-align": "left",
+    "space-after": 12,
+    "text-indent": 0
+  },
+  "comfort_letter": {
+    "versionType2": {
+      "text-align": "right",
+      "space-after": 24
+    },
+    "letterHead": {
+      "recipient": {
+        "text-align": "left",
+        "space-after": 12
+      },
+      "letterDate": {
+        "text-align": "left",
+        "space-after": 12
+      }
+    },
+    "introduction": {
+      "greeting": {
+        "text-align": "left",
+        "space-after": 12,
+        "keep-together": "false",
+        "keep-with-next": "false",
+        "suppress-auto-hyphens": "false",
+        "text-decoration": "none"
+      },
+      "text2": {
+        "text-indent": 25.4
+      }
+    },
+    "body": {
+      "content": {
+        "level1":{
+          "text-align": "justify",
+          "space-after": 12,
+          "left-indent": 0,
+          "text-indent": 0
+        },
+        "level2":{
+          "text-align": "justify",
+          "space-after": 12,
+          "left-indent": 11.1,
+          "text-indent": 0
+        },
+        "level2letter":{
+          "text-align": "justify",
+          "space-after": 12,
+          "left-indent": 11.1,
+          "text-indent": -6.3
+        },
+        "level2number":{
+          "text-align": "justify",
+          "space-after": 12,
+          "left-indent": 0,
+          "text-indent": 6.3
+        },
+        "level3":{
+          "text-align": "justify",
+          "space-after": 12,
+          "left-indent": 19,
+          "text-indent": -6.3
+        },
+         "level3letter":{
+          "text-align": "justify",
+          "space-after": 12,
+          "left-indent": 19,
+          "text-indent": -6.3
+        },
+         "level3LETTER":{
+          "text-align": "justify",
+          "space-after": 12,
+          "left-indent": 6.3,
+          "text-indent": -6.3
+        },
+        "level4":{
+          "text-align": "justify",
+          "space-after": 12,
+          "left-indent": 28.6,
+          "text-indent": -9.5
+        },
+        "level4roman":{
+          "text-align": "justify",
+          "space-after": 12,
+          "left-indent": 28.6,
+          "text-indent": -9.5
+        }
+      }
+    },
+    "sincerely" : {
+      "text-align": "left",
+      "left-indent": 0,
+      "text-indent": 0
+    }
+  }
+}

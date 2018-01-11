@@ -1,0 +1,21 @@
+extends ../layout/layout.pug
+
+block content
+  .row
+    .col-md-12
+      h1.page-header Edit Badge {{ ::badge.badgeName }}
+  .row(ng-show="isLoading")
+    .col-md-12
+      include ../common/spinner.pug
+  div(ng-hide="isLoading")
+    .row
+      .col-md-12
+        h2 Edit Badge {{ ::badge.badgeName }}
+    .row
+      .col-md-12
+        include ./form.pug
+    .row
+      .col-md-12
+        .buttons.text-right
+          a.btn.btn-default(href="/badges") Cancel
+          button.btn.btn-primary(ng-click="saveBadge()" ng-disabled="badgeForm.$invalid || isSaving") Save

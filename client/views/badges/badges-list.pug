@@ -1,0 +1,38 @@
+extends ../layout/layout.pug
+
+block content
+  .row
+    .col-md-12
+      h1.page-header Badges
+  .row(ng-show="isLoading")
+    .col-md-12
+      include ../common/spinner.pug
+  div(ng-hide="isLoading")
+    .row
+      .col-md-12
+        a.btn.btn-default.btn-primary(href="/badges/new") New Badge
+    .row
+      .col-md-12
+        table.table.table-striped.badges
+          thead
+            tr
+              td
+                strong Name
+              td
+                strong Badge Image
+              td.status
+                strong formular
+              td
+          tbody
+            tr(ng-repeat="badge in badges")
+              td {{ badge.badgeName }}
+              td: img(ng-src="uploads/{{badge.imageUrl}}" ng-style="{width: '20px', height: '20px'}")
+              td {{ badge.formular }}
+              td.actions.text-right
+                button.btn.btn-info.btn-sm(title="Edit" ng-click="editBadge(badge)" ng-disabled="isSaving")
+                  span.glyphicon.glyphicon-pencil
+                button.btn.btn-warning.btn-sm(title="Remove"
+                                              ng-click="removeBadge(badge)"
+                                              ng-disabled="isSaving")
+                  span.glyphicon.glyphicon-trash
+

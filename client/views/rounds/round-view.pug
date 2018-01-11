@@ -1,0 +1,48 @@
+extends ../layout/layout.pug
+
+block content
+
+  .row
+    .col-md-12
+      h1.page-header View Round {{ ::round.roundIndex }}
+  .row(ng-show="isLoading")
+    .col-md-12
+      include ../common/spinner.pug
+  div(ng-hide="isLoading")
+    .row
+      .col-md-12
+        h2 View Round {{ ::round.roundIndex }}
+    .row
+      .col-md-12
+        .form-group
+           label.col-md-3.control-label(for="judger") Round Judger
+           .col-md-9
+             input.form-control(name="judger" ng-model="round.judger.firstName" placeholder="Judger" ng-disabled="isSaving" ng-readonly="true")
+
+        .form-group(ng-show="round.roundWinner ")
+           label.col-md-3.control-label(for="roundWinner") Game Winner
+           .col-md-9
+             input.form-control(name="roundWinner" ng-model="round.roundWinner.firstName" placeholder="Round Winner" ng-disabled="isSaving" ng-readonly="true")
+        .form-group
+           label.col-md-3.control-label(for="task") Task
+           .col-md-9
+             input.form-control(name="task" ng-model="round.task" placeholder="Task" ng-disabled="isSaving" ng-readonly="true")
+    .row
+      .col-md-12
+        h2 Round Answers
+    .row
+      .col-md-12
+        table.table.table-striped.round.answers
+          thead
+            tr
+              td
+                strong Answer Image
+              td.status
+                strong Answer Owner
+              td
+          tbody
+            tr(ng-repeat="answer in round.answers")
+              td: img(ng-src="uploads/{{answer.imageUrl}}" ng-style="{width: '50px', height: '50px'}")
+              td {{ answer.answerCreator.firstName }}
+              td.actions.text-right
+                button.btn.btn-default.btn-primary(title="View" ng-click="viewPlayer(player)" ng-disabled="isSaving") View

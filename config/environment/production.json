@@ -1,0 +1,40 @@
+{
+  "port": 3000,
+
+  "db": "mongodb://localhost/spotted-prod",
+
+  "winston": {
+    "transports": {
+      "console": {
+        "colorize": true,
+        "stringify": true,
+        "prettyPrint": true,
+        "level": "info"
+      }
+    }
+  },
+  "mailer-option" :{
+    "service": "Hotmail",
+    "auth": {
+        "user": "kgom1028@hotmail.com",
+        "pass":  "qwe123!@#"
+    },
+    "debug": true 
+  },   
+  "apn-option" :{
+    "token" : {
+      "key":"apns/APNsAuthKey_34NR2MTC8T.p8",
+      "keyId":"34NR2MTC8T",
+      "teamId": "9M5CM389B4"
+    },
+    "production": true
+  }, 
+  "facebook-token": {
+      "clientID": "Application Id",
+      "clientSecret": "Application Secret",
+      "callbackURL": "http://localhost:3000/oauth/facebook/callback"
+  },
+  "time": {
+    "round": 86400000
+  }
+}

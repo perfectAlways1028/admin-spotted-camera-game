@@ -1,0 +1,21 @@
+extends ../layout/layout.pug
+
+block content
+  .row
+    .col-md-12
+      h1.page-header Edit User {{ ::user.email }}
+  .row(ng-show="isLoading")
+    .col-md-12
+      include ../common/spinner.pug
+  div(ng-hide="isLoading")
+    .row
+      .col-md-12
+        h2 Edit User {{ ::user.name }}
+    .row
+      .col-md-12
+        include ./form.pug
+    .row
+      .col-md-12
+        .buttons.text-right
+          a.btn.btn-default(href="/users") Cancel
+          button.btn.btn-primary(ng-click="saveUser()" ng-disabled="userForm.$invalid || isSaving") Save

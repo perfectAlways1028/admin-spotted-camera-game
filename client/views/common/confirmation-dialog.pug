@@ -1,0 +1,8 @@
+.modal-header
+  h3.modal-title {{ items.title }}
+.modal-body
+  div(ng-repeat="msg in items.message.split('\n')")
+    div {{ msg }}
+.modal-footer
+  button.btn.btn-default.btn-primary(ng-click="ok()") OK
+  button.btn.btn-default(ng-click="cancel()") Cancel

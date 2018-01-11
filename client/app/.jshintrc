@@ -1,0 +1,20 @@
+{
+    "extends": "../../.jshintrc",
+
+    // Enforcing
+    "maxlen"        : 150,      // {int} Max number of characters per line
+    "maxparams"     : false,    // {int} Max number of formal params allowed per function
+
+    // Custom Globals
+    "globals": {
+        "$"            : true,
+        "_"            : true,
+        "alert"        : true,
+        "angular"      : true,
+        "document"     : true,
+        "moment"       : true,
+        "navigator"    : true,
+        "toastr"       : true,
+        "window"       : true
+    }
+}

@@ -1,0 +1,46 @@
+extends ../layout/layout.pug
+
+block content
+  .row
+    .col-md-12
+      h1.page-header Users
+  .row(ng-show="isLoading")
+    .col-md-12
+      include ../common/spinner.pug
+  div(ng-hide="isLoading")
+    .row
+      .col-md-12
+        a.btn.btn-default.btn-primary(href="/users/new") New User
+    .row
+      .col-md-12
+        table.table.table-striped.users
+          thead
+            tr
+              td.first-name
+                strong First Name
+              td.last-name
+                strong Last Name
+              td
+                strong Email
+              td.status
+                strong Status
+              td
+          tbody
+            tr(ng-repeat="user in users")
+              td {{ user.firstName }}
+              td {{ user.lastName }}
+              td {{ user.email }}
+              td {{ user.status }}
+              td.actions.text-right
+                button.btn.btn-info.btn-sm(title="Edit" ng-click="editUser(user)" ng-disabled="isSaving")
+                  span.glyphicon.glyphicon-pencil
+                button.btn.btn-warning.btn-sm(title="Activate"
+                                              ng-if="user.status === 'inactive'"
+                                              ng-click="setUserStatus(user, 'active')"
+                                              ng-disabled="isSaving")
+                  span.glyphicon.glyphicon-refresh
+                button.btn.btn-warning.btn-sm(title="Suspend"
+                                              ng-if="user.status === 'active'"
+                                              ng-click="setUserStatus(user, 'inactive')"
+                                              ng-disabled="isSaving")
+                  span.glyphicon.glyphicon-trash
